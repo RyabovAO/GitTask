@@ -27,9 +27,10 @@ public class TaskOne {
         sweetBox.putSweet(cookie);
         sweetBox.printBoxInfo();
 
-        sweetBox.smartDeleteSweetByPrice(61);
+        System.out.println("----------------");
+        sweetBox.smartDeleteSweetByPrice(300);
         sweetBox.printBoxInfo();
-        sweetBox.smartDeleteSweetByWeight(300);
+        sweetBox.smartDeleteSweetByWeight(81);
         sweetBox.printBoxInfo();
     }
 

@@ -1,6 +1,7 @@
 package taskOne;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class SweetBox implements ISweetBox {
 
@@ -28,12 +29,13 @@ public class SweetBox implements ISweetBox {
     }
 
     @Override
-    public void printWeight() {
+    public int printWeight() {
         int weight = 0;
         for (Sweets sweets : listOfSweets) {
             weight += sweets.getWeight();
         }
         System.out.println("Общий вес: " + weight);
+        return weight;
     }
 
     @Override
@@ -55,19 +57,19 @@ public class SweetBox implements ISweetBox {
 
     @Override
     public void smartDeleteSweetByWeight(int weight) {
-        for (Sweets sweet : listOfSweets) {
-            if(sweet.getWeight() <= weight) {
-                listOfSweets.remove(sweet);
+        Iterator<Sweets> iter = listOfSweets.iterator();
+        while (iter.hasNext()) {
+            if (iter.next().getWeight() < weight) {
+                iter.remove();
             }
         }
     }
 
     @Override
-    public void smartDeleteSweetByPrice(int price) {
-        for (Sweets sweet : listOfSweets) {
-            if (sweet.getPrice() <= price) {
-                listOfSweets.remove(sweet);
-            }
+    public void smartDeleteSweetByPrice(int weight) {
+        listOfSweets.sort((s1, s2) -> s2.getPrice() - s1.getPrice());
+        while (printWeight() > weight) {
+            deleteLastSweet();
         }
     }
 

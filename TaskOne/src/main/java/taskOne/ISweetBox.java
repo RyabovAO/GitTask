@@ -8,7 +8,7 @@ public interface ISweetBox {
 
     void deleteSweetByIndex(int index);
 
-    void printWeight();
+    int printWeight();
 
     void printPrice();
 
