@@ -14,15 +14,11 @@ public class TaskOne {
 
         sweetBox.printPrice();
         sweetBox.printWeight();
-
         sweetBox.deleteLastSweet();
         sweetBox.printWeight();
-
         sweetBox.deleteSweetByIndex(1);
         sweetBox.printWeight();
-
         sweetBox.deleteSweetByIndex(3);
-
         sweetBox.putSweet(chocolate);
         sweetBox.putSweet(cookie);
         sweetBox.printBoxInfo();
@@ -30,7 +26,7 @@ public class TaskOne {
         System.out.println("----------------");
         sweetBox.smartDeleteSweetByPrice(300);
         sweetBox.printBoxInfo();
-        sweetBox.smartDeleteSweetByWeight(81);
+        sweetBox.smartDeleteSweetByWeight(799);
         sweetBox.printBoxInfo();
     }
 
