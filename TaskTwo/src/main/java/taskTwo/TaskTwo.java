@@ -27,7 +27,7 @@ public class TaskTwo {
         }
         while (input.hasNext()) {
             String word = input.next();
-            list.add(word.replaceAll("\\W", ""));
+            list.add(word.replaceAll("\\W", "").toLowerCase(Locale.ROOT));
         }
         if (list.size() == 0){
             System.out.println("Файл пуст");
