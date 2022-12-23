@@ -14,13 +14,13 @@ public class TaskThree {
 
         String path = "src/main/resources/file.json";
         Root root = dataFromJson(path);
-        printBriefInformation(root);
-        System.out.println("-----------------");
-        printOverdueSecurities(root);
-        System.out.println("-----------------");
+        //printBriefInformation(root);
+        //System.out.println("-----------------");
+        //printOverdueSecurities(root);
+        //System.out.println("-----------------");
         printInfoToUserRequest(root);
-        System.out.println("-----------------");
-        printSecuritiesInfo(root);
+        //System.out.println("-----------------");
+        //printSecuritiesInfo(root);
 
     }
 
@@ -92,7 +92,13 @@ public class TaskThree {
         if (userYearAsString.length() == 4) {
             userYear = Integer.parseInt(userYearAsString);
         } else if (userYearAsString.length() == 2) {
-
+            if(Integer.parseInt(userYearAsString) <= 59) {
+                userYearAsString = "20" + userYearAsString;
+                userYear = Integer.parseInt(userYearAsString);
+            } else {
+                userYearAsString = "19" + userYearAsString;
+                userYear = Integer.parseInt(userYearAsString);
+            }
         }
         listOfFounded = root.getCompanies().stream().map(company -> company.getFounded()).collect(Collectors.toList());
         for (int i = 0; i < listOfFounded.size(); i++) {
