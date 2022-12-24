@@ -14,11 +14,11 @@ public class TaskThree {
 
         String path = "src/main/resources/file.json";
         Root root = dataFromJson(path);
-        //printBriefInformation(root);
+        printBriefInformation(root);
         //System.out.println("-----------------");
         //printOverdueSecurities(root);
         //System.out.println("-----------------");
-        printInfoToUserRequest(root);
+        //printInfoToUserRequest(root);
         //System.out.println("-----------------");
         //printSecuritiesInfo(root);
 
@@ -26,7 +26,9 @@ public class TaskThree {
 
     public static void printBriefInformation(Root root) {
         root.getCompanies().forEach(e -> {
-            System.out.println(e.getName() + " - " + e.getFounded());
+            String founded = e.getFounded().replaceAll("\\.", "/");
+            founded = founded.substring(0,6) + founded.substring(8);
+            System.out.println(e.getName() + " - " + founded);
         });
     }
 
